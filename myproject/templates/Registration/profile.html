@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div>
+    <h1>Profile</h1>
+    <p>Username :  {{user}}</p>
+    <p>Email : {{user.email}}</p>
+
+    <button type="submit"><a href="{% url 'edit' %}">edit</button>
+
+  </div>
+
+{% endblock %}

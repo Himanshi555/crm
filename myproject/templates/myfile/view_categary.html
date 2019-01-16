@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Catalog</h2>
+  <div style="overflow-x:auto;" >
+  <table cellpadding="5" border="1">
+    <thead>
+      <th>ID</th>
+      <th>Name </th>
+      <th>Image </th>
+      <th>Update</th>
+      <th>Delete</th>
+    </thead>
+    <br>
+      <tbody align="center">
+      {% for v in viewcategary %}
+        <tr>
+          <td>{{v.Id}}</td>
+          <td>{{v.Name}}</td>
+          <td><img src="{{v.Image.url}}" style="width:80px; "></td>
+          <td><a href="{% url 'updatecategary' v.pk %}" class='btn btn-primary'>edit</td>
+          <td>
+            <form action="{% url 'delete_cateview' v.pk %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class='btn btn-danger btn-sm'>Delete</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+      </div>
+  </table>
+
+{% endblock %}

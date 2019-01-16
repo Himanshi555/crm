@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Catalog</h2>
+  <div style="overflow-x:auto;" >
+  <table cellpadding="5" border="1">
+    <thead>
+      <th>ID</th>
+      <th>Brand</th>
+      <th>Name </th>
+      <th>Image </th>
+      <th>Update</th>
+      <th>Delete</th>
+    </thead>
+    <br>
+      <tbody align="center">
+      {% for v in viewcatalog %}
+        <tr>
+          <td>{{v.Id}}</td>
+          <td>{{v.Brand}}</td>
+          <td>{{v.Name}}</td>
+          <td><img src="{{v.Image.url}}" style="width:80px; "></td>
+        </tr>
+      </tbody>
+      {% endfor %}
+      </div>
+  </table>
+
+{% endblock %}
